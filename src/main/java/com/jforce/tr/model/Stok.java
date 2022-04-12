@@ -31,6 +31,8 @@ public class Stok implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "Stok [id=" + id + ", kilo=" + kilo + "]";
+	}
 }
