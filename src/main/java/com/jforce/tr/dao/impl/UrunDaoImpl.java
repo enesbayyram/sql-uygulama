@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jforce.tr.dao.UrunDao;
+import com.jforce.tr.model.Musteri;
 import com.jforce.tr.model.Stok;
 import com.jforce.tr.model.Urun;
 
@@ -57,6 +58,17 @@ public class UrunDaoImpl implements UrunDao {
 	@Override
 	public Stok getStok() {
 		return entityManager.createQuery("from Stok", Stok.class).getSingleResult();
+	}
+
+	@Override
+	public List<Musteri> getMusteriList() {
+		List<Musteri> musteriList=null;
+		try {
+			musteriList = entityManager.createQuery("from Musteri", Musteri.class).getResultList();
+		} catch (Exception e) {
+			System.out.println("Hata olustu : " + e.getMessage());
+		}
+		return musteriList;
 	}
 
 }
